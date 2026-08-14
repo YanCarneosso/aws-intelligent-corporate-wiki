@@ -1,0 +1,11 @@
+{
+  "app": "node --import tsx bin/app.ts",
+  "context": {
+    "environment": "dev",
+    "owner": "portfolio",
+    "costCenter": "learning",
+    "webOrigin": "http://localhost:5173",
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:checkSecretUsage": true
+  }
+}

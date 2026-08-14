@@ -1,0 +1,13 @@
+{
+  "name": "aws-intelligent-corporate-wiki",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "dev": "pnpm --filter @wiki/web dev --host 127.0.0.1",
+    "preview": "pnpm --filter @wiki/web exec vite preview --host 127.0.0.1",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "build": "pnpm -r build"
+  }
+}

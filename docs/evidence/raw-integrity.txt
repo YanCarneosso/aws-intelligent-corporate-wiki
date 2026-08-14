@@ -1,0 +1,11 @@
+Captured: 2026-08-14
+Command: python scripts/verify_raw.py
+Result: raw integrity: PASS (3 files, SHA-256 byte-for-byte match)
+
+b4628df37cc5495580879a43c34d4b940904845a586406d458d7ae8647a3db9f  3573154  ata_resultados_vendas_novos_dados.png
+e785fc07e682edbb959004076ddf6b7b28e56f68029ecd41734b4c8d5cf61d59   150295  ata_reuniao_vendas_sa.pdf
+9b6c40cd9a8383c193d1f5e8b93eeb4fa68d7431aba95808f5786aea03671a5b    53030  vendas_sa_dados_ficticios_laboratorio.csv
+
+Smoke command result:
+PASS (pdf_chunks=5, csv_records=240, image_route=textract)
+

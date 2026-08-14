@@ -1,0 +1,8 @@
+Captured: 2026-08-14
+AWS CLI check: NOT INSTALLED
+Deployment: NOT EXECUTED
+
+No account, region identity, CloudFormation deployment, Textract request, Bedrock
+inference or Knowledge Base evaluation was executed. The repository is prepared for
+the reviewed deployment procedure in docs/deployment.md.
+

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "pdf-campaign",
+    "question": "Qual campanha foi aprovada para o terceiro trimestre e qual era sua meta?",
+    "expected_source": "ata_reuniao_vendas_sa.pdf",
+    "expected_locator": {"page": 3},
+    "expected_fact": "Rota 120; R$ 6 milhões até 30/09/2026",
+    "expected_abstention": false
+  },
+  {
+    "id": "pdf-action-a003",
+    "question": "Quem ficou responsável pela ação A003 e qual era o prazo?",
+    "expected_source": "ata_reuniao_vendas_sa.pdf",
+    "expected_locator": {"page": 3},
+    "expected_fact": "Camila Rocha; 20/07/2026",
+    "expected_abstention": false
+  },
+  {
+    "id": "scan-north",
+    "question": "Por que a região Norte ficou abaixo da meta?",
+    "expected_source": "ata_resultados_vendas_novos_dados.png",
+    "expected_locator": {"page": 1},
+    "expected_fact": "atrasos logísticos e menor cobertura comercial",
+    "expected_abstention": false
+  },
+  {
+    "id": "scan-action",
+    "question": "Quem deve executar a ação definida na ata de 15/01/2026 e até quando?",
+    "expected_source": "ata_resultados_vendas_novos_dados.png",
+    "expected_locator": {"page": 1},
+    "expected_fact": "Paulo Mendes; 28/02/2026",
+    "expected_abstention": false
+  },
+  {
+    "id": "csv-opportunity",
+    "question": "Qual oportunidade da campanha Rota 120 da Delta Logística está em negociação?",
+    "expected_source": "vendas_sa_dados_ficticios_laboratorio.csv",
+    "expected_locator": {"opportunity_id": "OPP-20260015", "source_row": 16},
+    "expected_fact": "OPP-20260015; valor líquido R$ 148.056,00; Lucas Ribeiro",
+    "expected_abstention": false
+  },
+  {
+    "id": "negative-net-income",
+    "question": "Qual foi o lucro líquido consolidado da empresa em 2025?",
+    "expected_source": null,
+    "expected_locator": null,
+    "expected_fact": null,
+    "expected_abstention": true
+  }
+]
+

@@ -1,0 +1,15 @@
+Captured: 2026-08-14, Python 3.12.13, local Windows workspace
+Command: python -m pytest --cov --cov-report=term-missing --cov-report=xml
+
+collected 41 items
+41 passed in 13.79s
+Statements: 740
+Missed statements: 52
+Branches: 162
+Partial branches: 38
+Total coverage: 90.02%
+Configured minimum: 75.0%
+
+The integration suite read the actual raw PDF, PNG and 240-row CSV. AWS clients were
+replaced by test doubles; this result does not claim live AWS integration.
+

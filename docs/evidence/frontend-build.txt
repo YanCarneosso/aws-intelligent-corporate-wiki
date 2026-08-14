@@ -1,0 +1,18 @@
+Captured: 2026-08-14, Node.js 24.19.0 runtime, local workspace
+
+Web lint: PASS
+Web TypeScript: PASS
+Web tests: 2 files passed, 3 tests passed (Vitest 4.1.10)
+Web production build: PASS (Vite 8.2.1)
+
+dist/index.html                  0.82 kB | gzip 0.47 kB
+dist/assets/index-DkH00tCo.css   8.27 kB | gzip 2.60 kB
+dist/assets/index-D8pqLunQ.js  289.65 kB | gzip 89.32 kB
+
+Visual QA performed before final build in the in-app browser:
+- desktop login layout rendered without console-blocking errors;
+- 390x844 mobile viewport rendered without clipping;
+- Cognito-missing local fallback showed the login page as designed.
+- production bundle loaded from `/apps/web/dist/` with relative assets and no
+  console warnings/errors, validating subdirectory hosting.
+No screenshot is claimed or stored.

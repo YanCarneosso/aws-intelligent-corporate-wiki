@@ -1,0 +1,13 @@
+Captured: 2026-08-14, local synthesis without AWS credentials
+
+Infrastructure lint: PASS
+Infrastructure TypeScript: PASS
+CDK assertions: 1 file passed, 5 tests passed (Vitest 3.2.4)
+CDK synth --quiet: PASS
+
+Informational CDK CLI output:
+80 feature flags are not configured. Run 'cdk flags --unstable=flags' to learn more.
+
+The synthesized stack was not deployed. Synth validates construction/template
+generation, not regional quota, model access, service-linked roles or live behavior.
+

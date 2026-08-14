@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aws-intelligent-corporate-wiki"
+version = "0.1.0"
+description = "Format-aware AWS document intelligence and grounded RAG reference implementation"
+requires-python = ">=3.12"
+dependencies = [
+  "boto3==1.43.71",
+  "pydantic==2.13.4",
+  "pypdf==6.16.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==1.20.2",
+  "pytest==9.1.1",
+  "pytest-cov==7.1.0",
+  "ruff==0.16.3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["services", "shared"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config -ra"
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+  "integration: exercises multiple local components without calling AWS",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["services", "shared"]
+omit = ["*/handler.py", "*/handlers.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 75
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF", "S"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+exclude = ["build", "node_modules", "cdk.out"]
+
+[[tool.mypy.overrides]]
+module = ["boto3.*", "botocore.*", "pypdf.*"]
+ignore_missing_imports = true

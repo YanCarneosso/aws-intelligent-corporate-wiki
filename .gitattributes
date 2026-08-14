@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# Preserve the exact byte representation used by the challenge corpus on checkout.
+raw/*.png -text
+raw/*.pdf -text
+raw/*.csv text eol=crlf

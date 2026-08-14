@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+          run_install: false
+
+      - name: Install Python dependencies
+        run: python -m pip install -e ".[dev]"
+
+      - name: Install JavaScript dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify immutable raw assets
+        run: python scripts/verify_raw.py
+
+      - name: Backend lint and type checking
+        run: |
+          python -m ruff check services shared tests scripts
+          python -m ruff format --check services shared tests scripts
+          python -m mypy services shared scripts
+
+      - name: Backend tests and coverage
+        run: python -m pytest --cov --cov-report=term-missing --cov-report=xml
+
+      - name: Frontend and infrastructure quality
+        run: |
+          pnpm -r lint
+          pnpm -r test
+          pnpm --filter @wiki/web build
+          pnpm --filter @wiki/infrastructure build
+
+      - name: Package Lambda and synthesize CDK
+        run: |
+          python scripts/package_lambda.py
+          pnpm --filter @wiki/infrastructure synth
+
+      - name: Repository invariants
+        run: |
+          python scripts/smoke_test.py
+          python scripts/validate_repository.py
+          git diff --check
+          git diff --exit-code -- raw/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-evidence
+          path: |
+            coverage.xml
+            infra/cdk/cdk.out/*.template.json
+          if-no-files-found: ignore
