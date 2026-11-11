@@ -1,16 +1,24 @@
-<div align="center">
-  <img src="docs/assets/inteligencia-artificial-cloud.png" width="230" alt="Inteligência Artificial e Cloud" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/cover-dark.svg">
+  <img src="docs/assets/cover-light.svg" width="100%" alt="Atlas — Wiki Corporativa Inteligente na AWS. RAG com Amazon Bedrock. 41 testes, 5 ADRs e CI.">
+</picture>
 
-# Wiki Corporativa Inteligente na AWS
+<p align="center"><strong>Documentos dispersos transformados em conhecimento pesquisável, seguro e rastreável.</strong></p>
 
-**Documentos dispersos transformados em conhecimento pesquisável, seguro e rastreável.**
+<p align="center">
+  <a href="https://github.com/YanCarneosso/aws-intelligent-corporate-wiki/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/YanCarneosso/aws-intelligent-corporate-wiki/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="pyproject.toml"><img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white"></a>
+  <a href="apps/web"><img alt="React e TypeScript" src="https://img.shields.io/badge/React-TypeScript-149ECA?logo=react&logoColor=white"></a>
+  <a href="docs/architecture.md"><img alt="AWS Serverless" src="https://img.shields.io/badge/AWS-Serverless-FF9900?logo=amazonwebservices&logoColor=white"></a>
+</p>
 
-[![AWS](https://img.shields.io/badge/AWS-Serverless-FF9900?logo=amazonwebservices&logoColor=white)](docs/architecture.md)
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](pyproject.toml)
-[![React](https://img.shields.io/badge/React-TypeScript-149ECA?logo=react&logoColor=white)](apps/web)
-[![CI](https://github.com/YanCarneosso/aws-intelligent-corporate-wiki/actions/workflows/ci.yml/badge.svg)](https://github.com/YanCarneosso/aws-intelligent-corporate-wiki/actions/workflows/ci.yml)
+## Em 30 segundos
 
-</div>
+- **Problema:** conhecimento corporativo espalhado em PDFs, documentos escaneados e planilhas de CRM, difícil de consultar e sem garantia de origem.
+- **Solução:** plataforma RAG na AWS com ingestão específica por formato (extração direta, Amazon Textract ou parser estruturado), Amazon Bedrock Knowledge Bases, Guardrails e autorização por departamento e nível de confidencialidade.
+- **Resultado:** respostas que citam a fonte exata (página do PDF ou linha do CSV) e abstenção quando não há evidência. 41 testes aprovados, CI, 5 ADRs, modelo de ameaças, modelo de custos e metodologia de avaliação do RAG.
+- **Stack:** Python 3.12 · TypeScript · React · Amazon Bedrock · Textract · Step Functions · Lambda · Cognito · AWS CDK
+- **Por onde começar:** [arquitetura](docs/architecture.md) · [avaliação do RAG](docs/rag-evaluation.md) · [modo demonstração da interface](#executar-a-interface)
 
 ## Sobre o projeto
 
@@ -86,6 +94,8 @@ Código, testes, frontend e CDK synth estão validados localmente. O deploy AWS 
 executado neste ambiente; as evidências reais estão em [`docs/evidence`](docs/evidence).
 
 ## Origem
+
+<img src="docs/assets/inteligencia-artificial-cloud.png" width="140" alt="Inteligência Artificial e Cloud" align="right">
 
 Este projeto amplia o desafio
 [A Wiki Perdida dos Arquivos Corporativos](https://github.com/digitalinnovationone/laboratorio-wiki-aws),
